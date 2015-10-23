@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ParrillaBoton</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="Aceptar">Aceptar</string>
+    <string name="Linear1">Primer linear anidado</string>
+    <string name="Linear2">Segundo linear anidado</string>
+</resources>
