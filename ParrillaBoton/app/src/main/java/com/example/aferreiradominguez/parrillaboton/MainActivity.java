@@ -1,20 +1,56 @@
 package com.example.aferreiradominguez.parrillaboton;
 
+import android.content.Context;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.GridView;
+import android.widget.SeekBar;
 import android.widget.Toast;
 
+
 public class MainActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
+
+
+        // Toast.makeText(getApplicationContext(), "Progreso: " + seekBar.getProgress() + "/" + seekBar.getMax(), Toast.LENGTH_SHORT).show();
+
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            int progress = 0;
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
+                progress = progresValue;
+                Toast.makeText(getApplicationContext(), "cambiando el progreso del seekbar", Toast.LENGTH_SHORT).show();
+
+            }
+
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                Toast.makeText(getApplicationContext(), "Has movido la seekbar", Toast.LENGTH_SHORT).show();
+
+            }
+
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                Vibrator vib = (Vibrator) MainActivity.this.getSystemService(Context.VIBRATOR_SERVICE);
+                vib.vibrate(seekBar.getProgress() * 10);
+                Toast.makeText(getApplicationContext(), "Progreso: " + seekBar.getProgress() + "/" + seekBar.getMax(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "seekbar en reposo", Toast.LENGTH_SHORT).show();
+            }
+
+        });
 
         Button btAcept = (Button) findViewById(R.id.btAceptar);
         btAcept.setOnClickListener(new View.OnClickListener() {
@@ -45,4 +81,6 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
