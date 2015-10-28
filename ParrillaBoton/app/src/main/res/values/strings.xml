@@ -6,4 +6,16 @@
     <string name="Aceptar">Aceptar</string>
     <string name="Linear1">Primer linear anidado</string>
     <string name="Linear2">Segundo linear anidado</string>
+    <string name="Linear3">Tercer linear anidado</string>
+    <string-array name="planets_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
+
 </resources>
