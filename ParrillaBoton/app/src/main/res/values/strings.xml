@@ -7,6 +7,8 @@
     <string name="Linear1">Primer linear anidado</string>
     <string name="Linear2">Segundo linear anidado</string>
     <string name="Linear3">Tercer linear anidado</string>
+    <string name="Linear4">edit_message</string>
+    <string name="send" >envia</string>
     <string-array name="planets_array">
         <item>Mercury</item>
         <item>Venus</item>
@@ -17,5 +19,14 @@
         <item>Uranus</item>
         <item>Neptune</item>
     </string-array>
+    <string name="title_activity_extra">Extra</string>
+    <string name="title_activity_display_message">Nueva</string>
+    <string name="edit_message">Escribe aqui...</string>
+    <string name="edit_tel">telefono</string>
+    <string name="llama">llamada</string>
+    <string name="edit_mapa">mapa</string>
+    <string name="buscaMapa">localizaNMap</string>
+    <string name="edit_url">direccion</string>
+    <string name="navega">navegador</string>
 
 </resources>
