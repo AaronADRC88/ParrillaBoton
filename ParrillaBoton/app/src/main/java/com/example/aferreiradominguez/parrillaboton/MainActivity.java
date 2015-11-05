@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,12 +21,14 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     public final static String EXTRA_MESSAGE = "com.example.aferreiradominguez.parrillaboton.MESSAGE";
+    public static String progresoSeek;
+    public static String spinnerPlanet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Spinner spinner = (Spinner) findViewById(R.id.planets_spinner);
+        final Spinner spinner = (Spinner) findViewById(R.id.planets_spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.planets_array, android.R.layout.simple_spinner_item);
@@ -33,6 +36,20 @@ public class MainActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> adapter, View vies,
+                                       int position, long id) {
+                // Aquí se codifica la lógica que se ejecutará al seleccionar un elemento del Spinner.
+                spinnerPlanet = spinner.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapter) {
+
+            }
+        });
         SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int progress = 0;
@@ -40,13 +57,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
                 progress = progresValue;
-                Toast.makeText(getApplicationContext(), "cambiando el progreso del seekbar", Toast.LENGTH_SHORT).show();
+                // Toast.makeText(getApplicationContext(), "cambiando el progreso del seekbar", Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                Toast.makeText(getApplicationContext(), "Has movido la seekbar", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Has movido la seekbar", Toast.LENGTH_SHORT).show();
 
             }
 
@@ -56,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
                 vib.vibrate(seekBar.getProgress() * 10);
                 Toast.makeText(getApplicationContext(), "Progreso: " + seekBar.getProgress() + "/" + seekBar.getMax(), Toast.LENGTH_SHORT).show();
                 Toast.makeText(getApplicationContext(), "seekbar en reposo", Toast.LENGTH_SHORT).show();
+                progresoSeek = String.valueOf(seekBar.getProgress());
             }
         });
 
@@ -65,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getBaseContext(), "Has pulsado Aceptar!", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
     public void sendMessage(View view) {
@@ -72,6 +91,8 @@ public class MainActivity extends AppCompatActivity {
         EditText editText = (EditText) findViewById(R.id.edit_message);
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
+        intent.putExtra("spinner", spinnerPlanet);
+        //intent.putExtra("progreso",);
         startActivity(intent);
     }
 
@@ -124,6 +145,5 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 
 }

@@ -8,9 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class DisplayMessageActivity extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,11 +20,12 @@ public class DisplayMessageActivity extends AppCompatActivity {
         // Get the message from the intent
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-
+        String progreso=MainActivity.progresoSeek;
+        String planeta=MainActivity.spinnerPlanet;
         // Create the text view
         TextView textView = new TextView(this);
         textView.setTextSize(40);
-        textView.setText(message);
+        textView.setText(message+"\n"+progreso+"\n"+planeta);
 
         // Set the text view as the activity layout
         setContentView(textView);
