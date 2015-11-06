@@ -28,5 +28,10 @@
     <string name="buscaMapa">localizaNMap</string>
     <string name="edit_url">direccion</string>
     <string name="navega">navegador</string>
+    <string name="edit_message2">edit_message2</string>
+    <string name="send2">btvuelve</string>
+    <string name="edit_message_del_display" />
+    <string name="send2Back">IrPaVolver</string>
+    <string name="tW_del_display" />
 
 </resources>

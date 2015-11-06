@@ -1,5 +1,6 @@
 package com.example.aferreiradominguez.parrillaboton;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -15,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -86,6 +88,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+            if (resultCode == Activity.RESULT_OK) {
+                TextView textView = (TextView) findViewById(R.id.edit_message_del_display);
+                String message = data.getStringExtra("resultado");
+                textView.setText(message);
+            }
+        }
+    }
+
     public void sendMessage(View view) {
         Intent intent = new Intent(this, DisplayMessageActivity.class);
         EditText editText = (EditText) findViewById(R.id.edit_message);
@@ -93,7 +106,16 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(EXTRA_MESSAGE, message);
         intent.putExtra("spinner", spinnerPlanet);
         //intent.putExtra("progreso",);
-        startActivity(intent);
+        startActivityForResult(intent, 1);
+    }
+
+    public void irpavolver(View v) {
+        Intent intent1 = new Intent(this, DisplayMessageActivity.class);
+        EditText editText = (EditText) findViewById(R.id.edit_message);
+        String message = editText.getText().toString();
+        intent1.putExtra(EXTRA_MESSAGE, message);
+        intent1.putExtra("spinner", spinnerPlanet);
+        startActivityForResult(intent1, 1);
     }
 
     public void llama(View v) {

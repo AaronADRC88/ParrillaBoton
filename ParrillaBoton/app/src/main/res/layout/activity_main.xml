@@ -25,8 +25,8 @@
     </LinearLayout>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_height="50dp"
         android:layout_width="fill_parent"
+        android:layout_height="50dp"
         android:orientation="horizontal">
 
         <TextView
@@ -50,11 +50,13 @@
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:orientation="horizontal">
+
         <TextView
             android:id="@+id/text3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Linear3" />
+
         <Spinner
             android:id="@+id/planets_spinner"
             android:layout_width="fill_parent"
@@ -67,10 +69,12 @@
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:orientation="horizontal">
-        <EditText android:id="@+id/edit_message"
-            android:layout_weight="1"
+
+        <EditText
+            android:id="@+id/edit_message"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:hint="@string/edit_message" />
 
         <Button
@@ -79,20 +83,22 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:onClick="sendMessage"
-            android:text="@string/send"
-            />
+            android:text="@string/send" />
 
 
     </LinearLayout>
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:orientation="horizontal">
-        <EditText android:id="@+id/edit_tel"
-            android:layout_weight="1"
+
+        <EditText
+            android:id="@+id/edit_tel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:hint="@string/edit_tel" />
 
         <Button
@@ -101,20 +107,22 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:onClick="llama"
-            android:text="@string/llama"
-            />
+            android:text="@string/llama" />
 
 
     </LinearLayout>
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:orientation="horizontal">
-        <EditText android:id="@+id/edit_url"
-            android:layout_weight="1"
+
+        <EditText
+            android:id="@+id/edit_url"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:hint="@string/edit_url" />
 
         <Button
@@ -123,20 +131,22 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:onClick="navega"
-            android:text="@string/navega"
-            />
+            android:text="@string/navega" />
 
 
     </LinearLayout>
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:orientation="horizontal">
-        <EditText android:id="@+id/edit_mapa"
-            android:layout_weight="1"
+
+        <EditText
+            android:id="@+id/edit_mapa"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:hint="@string/edit_mapa" />
 
         <Button
@@ -145,8 +155,31 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:onClick="localiza"
-            android:text="@string/buscaMapa"
-            />
+            android:text="@string/buscaMapa" />
+
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/edit_message_del_display"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:hint="@string/edit_message_del_display" />
+
+        <Button
+            android:id="@+id/btSend2Back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:onClick="irpavolver"
+            android:text="@string/send2Back" />
 
 
     </LinearLayout>
